@@ -15,12 +15,15 @@ func main() {
 
 	counter := 69
 
+	app.Get("/index.js", func(c *fiber.Ctx) error {
+		return c.SendFile("./index.js")
+	})
+
 	app.Get("/style.css", func(c *fiber.Ctx) error {
 		return c.SendFile("./style.css")
 	})
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		c.Response().Header.Add("Content-Type", "text/html")
 		err := templates.Render("index", map[string]string{"Counter": fmt.Sprintf("%d", counter)}, c)
 		log.Printf("viewed index.html")
 		return err
