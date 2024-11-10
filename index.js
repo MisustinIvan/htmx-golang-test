@@ -14,6 +14,25 @@ let main = () => {
         radius: 500,
     }).addTo(map);
 
+    var test_line = {
+        type: "Feature",
+        properties: {
+            name: "test line",
+            popupContent: "test popup content",
+        },
+        geometry: {
+            type: "LineString",
+            coordinates: [
+                [-0.1, 51.5],
+                [-0.05, 51.55],
+                [0, 51.5],
+                [0.05, 51.55],
+                [0.1, 51.5],
+            ],
+        },
+    };
+    L.geoJSON(test_line).addTo(map);
+
     let loop = () => {
         lng += 0.0001;
         circle.setLatLng([lat, lng]);
