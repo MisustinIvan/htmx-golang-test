@@ -5,9 +5,9 @@ let main = () => {
         attribution:
             '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
-    var lng = 51.508;
-    var lat = -0.11;
-    var circle = L.circle([lng, lat], {
+    var lat = 51.508;
+    var lng = -0.11;
+    var circle = L.circle([lat, lng], {
         color: "red",
         fillColor: "#f03",
         fillOpacity: 0.5,
