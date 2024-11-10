@@ -15,9 +15,9 @@ let main = () => {
     }).addTo(map);
 
     let loop = () => {
-        lng += 0.001;
+        lng += 0.0001;
         circle.setLatLng([lat, lng]);
-        setTimeout(loop, 1000);
+        setTimeout(loop, 100);
     };
     loop();
 };
