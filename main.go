@@ -30,6 +30,10 @@ func main() {
 		Storage: storage,
 	})
 
+	app.Get("/favicon.ico", func(c *fiber.Ctx) error {
+		return c.SendFile("./favicon.ico")
+	})
+
 	app.Get("/index.js", func(c *fiber.Ctx) error {
 		return c.SendFile("./index.js")
 	})
