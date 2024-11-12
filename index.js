@@ -42,3 +42,7 @@ let main = () => {
 };
 
 document.addEventListener("DOMContentLoaded", main);
+document.addEventListener("htmx:configRequest", (evt) => {
+    const auth = "ligmaballs";
+    evt.detail.headers["Authorization"] = auth;
+});

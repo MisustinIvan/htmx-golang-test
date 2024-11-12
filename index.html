@@ -34,29 +34,33 @@
     <body data-bs-theme="dark">
         <div class="container">
             <div class="row">
-                <div class="m-3 fs-4 col">Counter:</div>
-                <div
-                    id="counter"
-                    class="col text-center bg-secondary m-3 rounded fs-4"
-                >
-                    {{.Counter}}
+                <div class="row">
+                    <div class="m-3 fs-4 col">Counter:</div>
+                    <div
+                        id="counter"
+                        class="col text-center bg-secondary m-3 rounded fs-4"
+                    >
+                        {{.Counter}}
+                    </div>
                 </div>
-                <button
-                    hx-post="/increment"
-                    hx-target="#counter"
-                    hx-swap="textContent"
-                    class="btn btn-primary col m-3"
-                >
-                    Increment
-                </button>
-                <button
-                    hx-post="/decrement"
-                    hx-target="#counter"
-                    hx-swap="textContent"
-                    class="btn btn-primary col m-3"
-                >
-                    Decrement
-                </button>
+                <div class="row">
+                    <button
+                        hx-post="/increment"
+                        hx-target="#counter"
+                        hx-swap="textContent"
+                        class="btn btn-primary col m-3"
+                    >
+                        Increment
+                    </button>
+                    <button
+                        hx-post="/decrement"
+                        hx-target="#counter"
+                        hx-swap="textContent"
+                        class="btn btn-primary col m-3"
+                    >
+                        Decrement
+                    </button>
+                </div>
             </div>
             <hr />
             <form
@@ -81,7 +85,7 @@
                 hx-trigger="every 1s"
                 hx-target="#temperature"
                 hx-swap="textContent"
-                class="fs-4"
+                class="fs-4 mb-3"
             >
                 Current Temperature:
                 <span id="temperature" class="fs-4 fw-bold">Loading...</span>
