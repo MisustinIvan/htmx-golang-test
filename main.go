@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/session"
+	"github.com/gofiber/storage/sqlite3/v2"
 )
 
 var (
@@ -15,7 +17,18 @@ var (
 func main() {
 	app := fiber.New()
 	templates = newTemplates()
-	store = session.New()
+	storage := sqlite3.New(sqlite3.Config{
+		Database:        "./db.db",
+		Table:           "fiber_storage",
+		Reset:           false,
+		GCInterval:      10 * time.Second,
+		MaxIdleConns:    100,
+		MaxOpenConns:    100,
+		ConnMaxLifetime: 1 * time.Second,
+	})
+	store = session.New(session.Config{
+		Storage: storage,
+	})
 
 	app.Get("/index.js", func(c *fiber.Ctx) error {
 		return c.SendFile("./index.js")
